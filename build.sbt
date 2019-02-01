@@ -48,7 +48,8 @@ val commonSettings = Seq(
       username <- sys.env.get("SONATYPE_USERNAME")
       password <- sys.env.get("SONATYPE_PASSWORD")
     } yield Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", username, password)
-  ).toList
+  ).toList,
+  updateOptions := updateOptions.value.withLatestSnapshots(false)
 )
 
 val disablePublishing = Seq(
